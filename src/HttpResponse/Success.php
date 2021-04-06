@@ -39,6 +39,10 @@ class Success extends HttpResponse
     public function noContent(): Success
     {
         $this->statusCode = 204;
+        $this->message = "";
+        $this->data = [];
+        $this->type = "";
+        $this->parameter = "";
 
         return $this;
     }

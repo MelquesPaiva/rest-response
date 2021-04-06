@@ -57,10 +57,10 @@ $data = [
     ]
 ];
 
-echo $response->successful("The request was finish with success", $data);
+$response->successful("The request was finish with success", $data);
 
 // call response statusCode 204
-echo $response->noContent();
+$response->noContent();
 
 // call response other to other statusCode, but still a successfull response
 $success = new Success();
@@ -72,33 +72,33 @@ $success->setStatusCode(203)
 echo $response->successfullResponse($success);
 
 // call response with statusCode 400
-echo $response->badRequest("The data passed to this request is not valid", "parameter_if_necessary");
+$response->badRequest("The data passed to this request is not valid", "parameter_if_necessary");
 
 // call response with statusCode 401
-echo $response->unauthorized(
+$response->unauthorized(
     "You don't have authorization or you aren't authenticate to access this method",
     "parameter_if_necessary"
 );
 
 // call response with statusCode 403
-echo $response->actionForbidden(
+$response->actionForbidden(
     "The server understood the request, but you can't receive a succesfull response"
 );
 
 // call response with statusCode 404
-echo $response->notFound("No information founded", "parameter_if_necessary");
+$response->notFound("No information founded", "parameter_if_necessary");
 
 // call response with statusCode 405
-echo $response->methodNotAllowed(
+$response->methodNotAllowed(
     "The method with you trying to access this method is not allowed",
     "parameter_if_necessary"
 );
 
 // call response with statusCode 500
-echo $response->internalError("Some errors occurred on the server side");
+$response->internalError("Some errors occurred on the server side");
 
 // call response with statusCode 501
-echo $response->methodNotImplemented("This method still isn't impelemented");
+$response->methodNotImplemented("This method still isn't impelemented");
 
 // call response on a other statusCode error
 $error = new Error();

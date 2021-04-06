@@ -42,7 +42,7 @@ class Response
      */
     public function badRequest(string $message, string $parameter = ""): void
     {
-        $this->errorResponse($this->error->badRequest($parameter, $message));
+        echo $this->errorResponse($this->error->badRequest($parameter, $message));
     }
 
     /**
@@ -54,7 +54,7 @@ class Response
      */
     public function unauthorized(string $message, string $parameter = ""): void 
     {
-        $this->errorResponse($this->error->unauthorized($message, $parameter));
+        echo $this->errorResponse($this->error->unauthorized($message, $parameter));
     }
 
     /**
@@ -65,7 +65,7 @@ class Response
      */
     public function actionForbidden(string $message): void
     {
-        $this->errorResponse($this->error->actionForbidden($message));
+        echo $this->errorResponse($this->error->actionForbidden($message));
     }
 
     /**
@@ -77,7 +77,7 @@ class Response
      */
     public function notFound(string $message, string $paramenter = ""): void
     {
-        $this->errorResponse($this->error->notFound($message, $paramenter));
+        echo $this->errorResponse($this->error->notFound($message, $paramenter));
     }
 
     /**
@@ -87,7 +87,7 @@ class Response
      */
     public function methodNotAllowed(string $message, string $parameter = ""): void
     {
-        $this->errorResponse($this->error->methodNotAllowed($message, $parameter));
+        echo $this->errorResponse($this->error->methodNotAllowed($message, $parameter));
     }
 
     /**
@@ -98,7 +98,7 @@ class Response
      */
     public function internalError(string $message): void
     {
-        $this->errorResponse($this->error->internalError($message));
+        echo $this->errorResponse($this->error->internalError($message));
     }
 
     /**
@@ -109,7 +109,7 @@ class Response
      */
     public function methodNotImplemented(string $message): void
     {
-        $this->errorResponse($this->error->notImplemented($message));
+        echo $this->errorResponse($this->error->notImplemented($message));
     }
 
     /**
@@ -121,7 +121,7 @@ class Response
      */
     public function successful(string $message, array $data = []): void
     {
-        $this->successfullResponse($this->success->success($message, $data));
+        echo $this->successfullResponse($this->success->success($message, $data));
     }
 
     /**
@@ -131,7 +131,7 @@ class Response
      */
     public function noContent(): void
     {
-        $this->successfullResponse($this->success->noContent());
+        echo $this->successfullResponse($this->success->noContent());
     }
 
     /**

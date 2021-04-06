@@ -36,7 +36,7 @@ class SuccessExample
             ]
         ];
 
-        echo $this->response->successful("The request was finish with success", $data);
+        $this->response->successful("The request was finish with success", $data);
     }
 
     /**
@@ -46,22 +46,39 @@ class SuccessExample
      */
     public function emptyDataReturn(): void
     {
-        echo $this->response->noContent();
+        $this->response->noContent();
     }
 
     /**
      * Method to simulate other response int the 200 range
      *
+     * @param integer $statusCode
+     * @param string $message
+     * @param string $type
+     * @param array $data
      * @return void
      */
-    public function otherReturn(int $statusCode, array $data, string $message, string $type): void
+    public function otherReturn(int $statusCode, string $message, string $type, array $data = []): void
     {
         $success = new Success();
         $success->setStatusCode($statusCode)
-            ->setData($data)
             ->setMessage($message)
-            ->setType($type);
+            ->setType($type)
+            ->setData($data);
 
         echo $this->response->successfullResponse($success);
     }
 }
+
+// $param = $_GET['param'];
+// switch($param) {
+//     case "success":
+//         (new SuccessExample())->successReturn();
+//         return;
+//     case "no_content":
+//         (new SuccessExample())->emptyDataReturn();
+//         return;
+//     default:
+//         (new SuccessExample())->otherReturn(203, "message", "type",["user" => "test"]);
+//         return;
+// }
