@@ -1,14 +1,13 @@
 # rest-response
 Project to manage Restfull Api's response
-# CaféApi Library Test
 
 [![Maintainer](http://img.shields.io/badge/maintainer-@melquespaiva-blue.svg?style=flat-square)](https://instagram.com/melquespaiva?igshid=1iy3o4rdzfdrt)
 [![Source Code](http://img.shields.io/badge/source-MelquesPaiva/rest-response-blue.svg?style=flat-square)](https://github.com/MelquesPaiva/rest-response)
-[![PHP from Packagist](https://img.shields.io/packagist/php-v/MelquesPaiva/rest-response.svg?style=flat-square)](https://packagist.org/packagesMelquesPaiva/rest-response)
+[![PHP from Packagist](https://img.shields.io/packagist/php-v/MelquesPaiva/rest-response.svg?style=flat-square)](https://packagist.org/packages/melquespaiva/rest-response)
 [![Latest Version](https://img.shields.io/github/release/MelquesPaiva/rest-response.svg?style=flat-square)](https://github.com/MelquesPaiva/rest-response/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 [![Build](https://img.shields.io/scrutinizer/build/g/MelquesPaiva/rest-response.svg?style=flat-square)](https://scrutinizer-ci.com/g/MelquesPaiva/rest-response)
-[![Quality Score](https://img.shields.io/scrutinizer/g/MelquesPaiva/rest-response.svg?style=flat-square)](https://scrutinizer-ci.com/g/robsonvleite/cafeapi)
+[![Quality Score](https://img.shields.io/scrutinizer/g/MelquesPaiva/rest-response.svg?style=flat-square)](https://scrutinizer-ci.com/g/MelquesPaiva/rest-response)
 [![Total Downloads](https://img.shields.io/packagist/dt/MelquesPaiva/rest-response.svg?style=flat-square)](https://packagist.org/packages/cMelquesPaiva/rest-response)
 
 ###### Rest Response is an easy and optimized small library to manage your HTTP responses on your Api's RestFull
@@ -38,34 +37,97 @@ composer require melquespaiva/rest-response
 
 ## Documentation
 
-###### For details on how to use, see a sample folder in the component directory. In it you will have an example of use for each class. It works like this:
+###### For details on how to use, see a sample folder in the component directory.
 
-Para mais detalhes sobre como usar, veja uma pasta de exemplo no diretório do componente. Nela terá um exemplo de uso para cada classe. Ele funciona assim:
+Para mais detalhes sobre como usar, veja uma pasta de exemplo no diretório do componente.
 
-### Others
+```php
+<?php
 
-###### You also have classes for endpoints of portfolios and signatures, all the documentation of use with practical examples is available in the examples folder library. Please check there.
+require __DIR__ . "/../vendor/autoload.php";
 
-Você também conta com classes para os endpoints de carteiras e assinaturas, toda documentação de uso com exemplos práticos está disponível na pasta examples desta biblioteca. Por favor, consulte lá.
+$response = new Response();
 
+// call response statusCode 200
+$data = [
+    "user" => [
+        "name" => "Melques",
+        "last_name" => "Paiva",
+        "document" => "123456456"                
+    ]
+];
+
+echo $response->successful("The request was finish with success", $data);
+
+// call response statusCode 204
+echo $response->noContent();
+
+// call response other to other statusCode, but still a successfull response
+$success = new Success();
+$success->setStatusCode(203)
+    ->setData(["user" => "Melques Paiva"])
+    ->setMessage("A generic message")
+    ->setType("generic_type");
+
+echo $response->successfullResponse($success);
+
+// call response with statusCode 400
+echo $response->badRequest("The data passed to this request is not valid", "parameter_if_necessary");
+
+// call response with statusCode 401
+echo $response->unauthorized(
+    "You don't have authorization or you aren't authenticate to access this method",
+    "parameter_if_necessary"
+);
+
+// call response with statusCode 403
+echo $response->actionForbidden(
+    "The server understood the request, but you can't receive a succesfull response"
+);
+
+// call response with statusCode 404
+echo $response->notFound("No information founded", "parameter_if_necessary");
+
+// call response with statusCode 405
+echo $response->methodNotAllowed(
+    "The method with you trying to access this method is not allowed",
+    "parameter_if_necessary"
+);
+
+// call response with statusCode 500
+echo $response->internalError("Some errors occurred on the server side");
+
+// call response with statusCode 501
+echo $response->methodNotImplemented("This method still isn't impelemented");
+
+// call response on a other statusCode error
+$error = new Error();
+$error->setStatusCode(402)
+    ->setMessage("Payment Required")
+    ->setType("payment_required");
+
+echo $response->errorResponse($error)
+
+?>
+
+```
 ## Contributing
 
-Please see [CONTRIBUTING](https://github.com/MelquesPaiva/rest-response/blob/master/CONTRIBUTING.md) for details.
+Please see [CONTRIBUTING](https://github.com/MelquesPaiva/rest-response/blob/main/CONTRIBUTING.md) for details.
 
 ## Support
 
-###### Security: If you discover any security related issues, please email meu@email.com.br instead of using the issue tracker.
+###### Security: If you discover any security related issues, please email melque1703@gmail.com instead of using the issue tracker.
 
-Se você descobrir algum problema relacionado à segurança, envie um e-mail para meu@email.com.br em vez de usar o rastreador de problemas.
+Se você descobrir algum problema relacionado à segurança, envie um e-mail para melque1703@gmail.com em vez de usar o rastreador de problemas.
 
 Thank you
 
 ## Credits
 
-- [Robson V. Leite](https://github.com/MelquesPaiva) (Developer)
-- [UpInside Treinamentos](https://github.com/MelquesPaiva) (Team)
+- [Melques S. Paiva](https://github.com/MelquesPaiva) (Developer)
 - [All Contributors](https://github.com/MelquesPaiva/rest-response/contributors) (This Rock)
 
 ## License
 
-The MIT License (MIT). Please see [License File](https://github.com/MelquesPaiva/rest-response/blob/master/LICENSE) for more information.
+The MIT License (MIT). Please see [License File](https://github.com/MelquesPaiva/rest-response/blob/main/LICENSE) for more information.
