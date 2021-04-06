@@ -1,0 +1,29 @@
+{
+    "name": "melquespaiva/rest-response",
+    "description": "A project to manage Restfull Api's responses",
+    "license": "MIT",
+    "keywords": [
+        "MelquesPaiva",
+        "Rest",
+        "Restfull",
+        "API",
+        "Response"
+    ],
+    "authors": [
+        {
+            "name": "Melques Santos Paiva",
+            "email": "melque1703@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "ext-json": "*",
+        "ext-curl": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "MelquesPaiva\\RestResponse\\": "src"
+        }
+    }
+}
