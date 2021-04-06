@@ -28,7 +28,7 @@ class ErrorExample
      */
     public function badRequest(): void
     {
-        $this->response->badRequest("The data passed to this request is not valid", "parameter_if_necessary");
+        echo $this->response->badRequest("The data passed to this request is not valid", "parameter_if_necessary");
     }
 
     /**
@@ -38,7 +38,7 @@ class ErrorExample
      */
     public function unauthorized(): void
     {
-        $this->response->unauthorized(
+        echo $this->response->unauthorized(
             "You don't have authorization or you aren't authenticate to access this method",
             "parameter_if_necessary"
         );
@@ -51,7 +51,7 @@ class ErrorExample
      */
     public function actionForbidden(): void
     {
-        $this->response->actionForbidden(
+        echo $this->response->actionForbidden(
             "The server understood the request, but you can't receive a succesfull response"
         );
     }
@@ -63,7 +63,7 @@ class ErrorExample
      */
     public function notFound(): void
     {
-        $this->response->notFound("No information founded", "parameter_if_necessary");
+        echo $this->response->notFound("No information founded", "parameter_if_necessary");
     }
 
     /**
@@ -73,7 +73,7 @@ class ErrorExample
      */
     public function methodNotAllowed(): void
     {
-        $this->response->methodNotAllowed(
+        echo $this->response->methodNotAllowed(
             "The method with you trying to access this method is not allowed",
             "parameter_if_necessary"
         );
@@ -86,7 +86,7 @@ class ErrorExample
      */
     public function internalError(): void
     {
-        $this->response->internalError("Some errors occurred on the server side");
+        echo $this->response->internalError("Some errors occurred on the server side");
     }
 
     /**
@@ -96,7 +96,7 @@ class ErrorExample
      */
     public function methodNotImplemented(): void
     {
-        $this->response->methodNotImplemented("This method still isn't impelemented");
+        echo $this->response->methodNotImplemented("This method still isn't impelemented");
     }
 
     /**
@@ -111,8 +111,6 @@ class ErrorExample
             ->setMessage($message)
             ->setType($type);
 
-        $this->response->errorResponse($error);
+        echo $this->response->errorResponse($error);
     }
 }
-
-// (new ErrorExample())->otherReturn(402, "Message of example", "payment_required");

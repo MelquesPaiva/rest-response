@@ -36,7 +36,7 @@ class SuccessExample
             ]
         ];
 
-        $this->response->successful("The request was finish with success", $data);
+        echo $this->response->successful("The request was finish with success", $data);
     }
 
     /**
@@ -46,7 +46,7 @@ class SuccessExample
      */
     public function emptyDataReturn(): void
     {
-        $this->response->noContent();
+        echo $this->response->noContent();
     }
 
     /**
@@ -62,13 +62,6 @@ class SuccessExample
             ->setMessage($message)
             ->setType($type);
 
-        $this->response->successfullResponse($success);
+        echo $this->response->successfullResponse($success);
     }
 }
-
-// (new SuccessExample())->otherReturn(
-//     203,
-//     ["user" => "Melques S. Paiva"],
-//     "Setting a message for example",
-//     "non_authoritative_information"
-// );

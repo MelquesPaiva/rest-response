@@ -138,9 +138,9 @@ class Response
      * Handle successfull responses
      *
      * @param Success $success
-     * @return void
+     * @return string
      */
-    public function successfullResponse(Success $success): void
+    public function successfullResponse(Success $success): string
     {
         $return = $success->toArray();
 
@@ -151,17 +151,18 @@ class Response
             "error" => null
         ];
 
-        $this->httpResponse($return, $success->getStatusCode());
+        return $this->httpResponse($return, $success->getStatusCode());
     }
 
     /**
      * Handle Error Responses
      *
      * @param Error $error
-     * @return void
+     * @return string
      */
-    public function errorResponse(Error $error): void
+    public function errorResponse(Error $error): string
     {
+        $return = [];
         $return["meta"] = [
             "status" => $error->getStatusCode(),
             "url" => filter_input(INPUT_SERVER, 'REQUEST_URI'),
@@ -169,7 +170,7 @@ class Response
             "error" => $error->toArray()
         ];
 
-        $this->httpResponse($return, $error->getStatusCode());
+        return $this->httpResponse($return, $error->getStatusCode());
     }
 
     /**
@@ -177,12 +178,11 @@ class Response
      *
      * @param array $return
      * @param int $statusCode
-     * @return void
+     * @return string
      */
-    protected function httpResponse(array $return, int $statusCode): void
+    protected function httpResponse(array $return, int $statusCode): string
     {
         http_response_code($statusCode);
-        echo json_encode($return, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-        exit;
+        return json_encode($return, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
     }
 }
