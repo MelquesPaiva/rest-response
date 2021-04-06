@@ -2,7 +2,7 @@
 Project to manage Restfull Api's response
 
 [![Maintainer](http://img.shields.io/badge/maintainer-@melquespaiva-blue.svg?style=flat-square)](https://instagram.com/melquespaiva?igshid=1iy3o4rdzfdrt)
-[![Source Code](http://img.shields.io/badge/source-MelquesPaiva/rest-response-blue.svg?style=flat-square)](https://github.com/MelquesPaiva/rest-response)
+[![Source Code](http://img.shields.io/badge/source-MelquesPaiva/rest-response.svg?style=flat-square)](https://github.com/MelquesPaiva/rest-response)
 [![PHP from Packagist](https://img.shields.io/packagist/php-v/MelquesPaiva/rest-response.svg?style=flat-square)](https://packagist.org/packages/melquespaiva/rest-response)
 [![Latest Version](https://img.shields.io/github/release/MelquesPaiva/rest-response.svg?style=flat-square)](https://github.com/MelquesPaiva/rest-response/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
