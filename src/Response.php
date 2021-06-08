@@ -42,7 +42,7 @@ class Response
      */
     public function badRequest(string $message, string $parameter = ""): void
     {
-        echo $this->errorResponse($this->error->badRequest($parameter, $message));
+        echo $this->errorResponse($this->error->badRequest($message, $parameter));
     }
 
     /**
